@@ -1,0 +1,173 @@
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /home/renzopachecoj/.rvm/gems/ruby-2.4.9/bin/rake:23
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ /home/renzopachecoj/.rvm/gems/ruby-2.4.9/bin/rake:23
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /home/renzopachecoj/.rvm/gems/ruby-2.4.9/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/renzopachecoj/.rvm/gems/ruby-2.4.9/bin/rake:23
+Migrating to CreateImages (20200918020032)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/renzopachecoj/.rvm/gems/ruby-2.4.9/bin/rake:23
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "images" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "file" varchar, "string" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200918020032_create_images.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200918020032"]]
+  ↳ /home/renzopachecoj/.rvm/gems/ruby-2.4.9/bin/rake:23
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/renzopachecoj/.rvm/gems/ruby-2.4.9/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/renzopachecoj/.rvm/gems/ruby-2.4.9/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/renzopachecoj/.rvm/gems/ruby-2.4.9/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (9.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-09-18 02:00:41.941081"], ["updated_at", "2020-09-18 02:00:41.941081"]]
+  ↳ /home/renzopachecoj/.rvm/gems/ruby-2.4.9/bin/rake:23
+  [1m[35m (6.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/renzopachecoj/.rvm/gems/ruby-2.4.9/bin/rake:23
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/renzopachecoj/.rvm/gems/ruby-2.4.9/bin/rake:23
+Started GET "/" for 127.0.0.1 at 2020-09-17 19:17:03 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/renzopachecoj/.rvm/gems/ruby-2.4.9/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by ImagesController#index as HTML
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.0ms)
+
+
+  
+LoadError (Unable to autoload constant FileUploader, expected /home/renzopachecoj/Desktop/Repos/photoToServerDemo/imageServer/app/uploaders/file_uploader.rb to define it):
+  
+app/models/image.rb:6:in `<class:Resume>'
+app/models/image.rb:5:in `<main>'
+app/controllers/images_controller.rb:18:in `index'
+Started GET "/" for 127.0.0.1 at 2020-09-17 19:17:39 -0700
+Processing by ImagesController#index as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+LoadError (Unable to autoload constant Image, expected /home/renzopachecoj/Desktop/Repos/photoToServerDemo/imageServer/app/models/image.rb to define it):
+  
+app/controllers/images_controller.rb:18:in `index'
+Started GET "/" for 127.0.0.1 at 2020-09-17 19:20:21 -0700
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.erb within layouts/application
+  [1m[36mImage Load (1.1ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/views/images/index.html.erb:23
+  Rendered images/index.html.erb within layouts/application (18.7ms)
+Completed 200 OK in 3623ms (Views: 3606.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/images/new" for 127.0.0.1 at 2020-09-17 19:20:29 -0700
+Processing by ImagesController#new as HTML
+  Rendering images/new.html.erb within layouts/application
+  Rendered images/new.html.erb within layouts/application (55.7ms)
+Completed 200 OK in 125ms (Views: 116.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/images/new" for 127.0.0.1 at 2020-09-17 19:49:24 -0700
+Processing by ImagesController#new as HTML
+  Rendering images/new.html.erb within layouts/application
+  Rendered images/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 98ms (Views: 65.4ms | ActiveRecord: 4.0ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/renzopachecoj/.rvm/gems/ruby-2.4.9/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/renzopachecoj/.rvm/gems/ruby-2.4.9/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/renzopachecoj/.rvm/gems/ruby-2.4.9/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/renzopachecoj/.rvm/gems/ruby-2.4.9/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/renzopachecoj/.rvm/gems/ruby-2.4.9/bin/rake:23
+Started GET "/" for 127.0.0.1 at 2020-09-17 21:14:13 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/renzopachecoj/.rvm/gems/ruby-2.4.9/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.erb within layouts/application
+  [1m[36mImage Load (0.9ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/views/images/index.html.erb:23
+  Rendered images/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 340ms (Views: 325.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/images/new" for 127.0.0.1 at 2020-09-17 21:14:16 -0700
+Processing by ImagesController#new as HTML
+  Rendering images/new.html.erb within layouts/application
+  Rendered images/new.html.erb within layouts/application (23.3ms)
+Completed 200 OK in 68ms (Views: 57.0ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/images" for 127.0.0.1 at 2020-09-17 21:14:36 -0700
+Processing by ImagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A78YmGyy2InuFpnESy7PkA38DoyRxUpUPsu7c8MhShzJ+jh54gBuNRpCWLYSoJXLvFqHju04YXk3IYg/qbFLMw==", "image"=>{"name"=>"image1", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007f4e5813e9c8 @tempfile=#<Tempfile:/tmp/RackMultipart20200917-27775-176ynf7.jpg>, @original_filename="1b58ef6e3d36a42e01992accf5c52d6eea244353.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image[file]\"; filename=\"1b58ef6e3d36a42e01992accf5c52d6eea244353.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Save"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/images_controller.rb:14
+  [1m[36mImage Create (7.8ms)[0m  [1m[32mINSERT INTO "images" ("name", "file", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "image1"], ["file", "1b58ef6e3d36a42e01992accf5c52d6eea244353.jpg"], ["created_at", "2020-09-18 04:14:36.138045"], ["updated_at", "2020-09-18 04:14:36.138045"]]
+  ↳ app/controllers/images_controller.rb:14
+  [1m[35m (6.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/images_controller.rb:14
+Redirected to http://localhost:3000/images
+Completed 302 Found in 26ms (ActiveRecord: 14.7ms)
+
+
+Started GET "/images" for 127.0.0.1 at 2020-09-17 21:14:36 -0700
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.erb within layouts/application
+  [1m[36mImage Load (0.9ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/views/images/index.html.erb:23
+  Rendered images/index.html.erb within layouts/application (11.2ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for #<FileUploader:0x00007f4e58028070>
+Did you mean?  to_xml):
+    24:          
+    25:          <tr>
+    26:             <td><%= image.name %></td>
+    27:             <td><%= link_to "Download Image", image.file %></td>
+    28:             <td><%= button_to "Delete",  image, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{image.name}?" %></td>
+    29:          </tr>
+    30:          
+  
+app/views/images/index.html.erb:27:in `block in _app_views_images_index_html_erb___2818194646847358305_69987231180440'
+app/views/images/index.html.erb:23:in `_app_views_images_index_html_erb___2818194646847358305_69987231180440'
+Started GET "/images" for 127.0.0.1 at 2020-09-17 21:15:38 -0700
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.erb within layouts/application
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/views/images/index.html.erb:23
+  Rendered images/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 45ms (Views: 43.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/images/new" for 127.0.0.1 at 2020-09-17 21:15:42 -0700
+Processing by ImagesController#new as HTML
+  Rendering images/new.html.erb within layouts/application
+  Rendered images/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 24ms (Views: 23.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/images" for 127.0.0.1 at 2020-09-17 21:15:51 -0700
+Processing by ImagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XaSfFzzXYzKvmh0F+uWNdTOuQxgDuxHzexKzDxQCaJmX4b/2smXVjlvO3Heja9cuggjKGn9GOt5y+IBDfpJptg==", "image"=>{"name"=>"hbnuin", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007f4e521a2ff0 @tempfile=#<Tempfile:/tmp/RackMultipart20200917-27775-143brjy.jpg>, @original_filename="1b58ef6e3d36a42e01992accf5c52d6eea244353.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image[file]\"; filename=\"1b58ef6e3d36a42e01992accf5c52d6eea244353.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Save"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/images_controller.rb:14
+  [1m[36mImage Create (4.9ms)[0m  [1m[32mINSERT INTO "images" ("name", "file", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "hbnuin"], ["file", "1b58ef6e3d36a42e01992accf5c52d6eea244353.jpg"], ["created_at", "2020-09-18 04:15:51.279094"], ["updated_at", "2020-09-18 04:15:51.279094"]]
+  ↳ app/controllers/images_controller.rb:14
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/images_controller.rb:14
+Redirected to http://localhost:3000/images
+Completed 302 Found in 19ms (ActiveRecord: 9.5ms)
+
+
+Started GET "/images" for 127.0.0.1 at 2020-09-17 21:15:51 -0700
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.erb within layouts/application
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/views/images/index.html.erb:23
+  Rendered images/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 51ms (Views: 49.7ms | ActiveRecord: 0.1ms)
+
+
